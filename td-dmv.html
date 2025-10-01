@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD-DMV Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-id-card"></i>
+                    <h1>TD-DMV</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#installation" class="nav-link">Installation</a>
+                    <a href="#configuration" class="nav-link">Configuration</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#support" class="nav-link">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Getting Started</h3>
+                    <a href="#overview" class="sidebar-link">Overview</a>
+                    <a href="#installation" class="sidebar-link">Installation</a>
+                    <a href="#configuration" class="sidebar-link">Configuration</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Features</h3>
+                    <a href="#vehicle-registration" class="sidebar-link">Vehicle Registration</a>
+                    <a href="#leo-tools" class="sidebar-link">LEO Tools</a>
+                    <a href="#anpr-system" class="sidebar-link">ANPR System</a>
+                    <a href="#dmv-documents" class="sidebar-link">DMV Documents</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Commands & API</h3>
+                    <a href="#commands" class="sidebar-link">Commands</a>
+                    <a href="#permissions" class="sidebar-link">Permissions</a>
+                    <a href="#database" class="sidebar-link">Database</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Support</h3>
+                    <a href="#troubleshooting" class="sidebar-link">Troubleshooting</a>
+                    <a href="#support" class="sidebar-link">Get Help</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>TD-DMV Documentation</h1>
+                    <p>Advanced Department of Motor Vehicles system for FiveM servers featuring vehicle registration, law enforcement lookup tools, and ANPR system.</p>
+                    <div class="hero-badges">
+                        <span class="badge">Version 1.0.0</span>
+                        <span class="badge">FiveM Ready</span>
+                        <span class="badge">ox_lib Required</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overview Section -->
+            <section id="overview" class="section">
+                <h2>Overview</h2>
+                <p>TD-DMV is a comprehensive Department of Motor Vehicles system designed for FiveM servers. It provides players with the ability to register their vehicles with the DMV, while giving law enforcement officers advanced tools for vehicle lookup and automatic license plate recognition.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Vehicle Registration</h3>
+                        <p>Register vehicles with comprehensive player information and unique license plate validation.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>LEO Lookup Tools</h3>
+                        <p>Advanced search capabilities for law enforcement officers to find vehicle and owner information.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>ANPR System</h3>
+                        <p>Automatic Number Plate Recognition system for emergency vehicles with realistic detection.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>DMV Documents</h3>
+                        <p>Professional-looking registration certificates with printable PDF-style documents.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installation Section -->
+            <section id="installation" class="section">
+                <h2>Installation</h2>
+                
+                <div class="step">
+                    <h3>Prerequisites</h3>
+                    <p>Before installing TD-DMV, ensure you have the following:</p>
+                    <ul>
+                        <li><strong>FiveM Server</strong> - Running FiveM server with admin access</li>
+                        <li><strong>MySQL Database</strong> - MySQL 5.7+ or MariaDB 10.3+</li>
+                        <li><strong>oxmysql Resource</strong> - Latest version installed and configured</li>
+                        <li><strong>ox_lib Resource</strong> - Required for UI components and notifications</li>
+                        <li><strong>ESX or QBCore</strong> - Framework support (optional)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Step 1: Download and Extract</h3>
+                    <p>Download TD-DMV and extract it to your server's <code>resources</code> folder.</p>
+                    <div class="code-block">
+                        <code>resources/td-dmv/</code>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Step 2: Database Setup</h3>
+                    <p>Import the SQL file into your database:</p>
+                    <div class="code-block">
+                        <code>mysql -u username -p database_name < database.sql</code>
+                    </div>
+                    <p>This will create the following tables:</p>
+                    <ul>
+                        <li><code>dmv_players</code> - Player information and identifiers</li>
+                        <li><code>dmv_vehicles</code> - Vehicle registration records</li>
+                        <li><code>dmv_anpr_logs</code> - ANPR detection logs</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Step 3: Resource Configuration</h3>
+                    <p>Add TD-DMV to your <code>server.cfg</code> file:</p>
+                    <div class="code-block">
+                        <code># Database (must load first)<br>
+                        ensure oxmysql<br><br>
+                        # TD-DMV (loads after oxmysql)<br>
+                        ensure td-dmv</code>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Step 4: Permissions Setup</h3>
+                    <p>Add these ACE permissions to your <code>server.cfg</code>:</p>
+                    <div class="code-block">
+                        <code># DMV LEO Access<br>
+                        add_ace group.admin leo.dmv allow<br>
+                        add_ace group.police leo.dmv allow<br><br>
+                        # ANPR System Access<br>
+                        add_ace group.admin leo.anpr allow<br>
+                        add_ace group.police leo.anpr allow</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuration Section -->
+            <section id="configuration" class="section">
+                <h2>Configuration</h2>
+                
+                <div class="config-section">
+                    <h3>General Settings</h3>
+                    <div class="code-block">
+                        <code>Config = {}<br><br>
+                        -- General Settings<br>
+                        Config.Debug = false<br>
+                        Config.Locale = 'en'<br><br>
+                        -- Commands<br>
+                        Config.DMVCommand = 'dmv'<br>
+                        Config.ANPRCommand = 'anpr'</code>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <h3>ANPR Settings</h3>
+                    <div class="code-block">
+                        <code>-- ANPR Settings<br>
+                        Config.ANPRRange = 15.0<br>
+                        Config.ANPRCheckInterval = 1000<br>
+                        Config.ANPRFrontCamRange = 20.0<br>
+                        Config.ANPRRearCamRange = 15.0</code>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <h3>Permissions</h3>
+                    <div class="code-block">
+                        <code>-- Permissions<br>
+                        Config.LEOPermission = 'leo.dmv'<br>
+                        Config.ANPRPermission = 'leo.anpr'</code>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <h3>UI Settings</h3>
+                    <div class="code-block">
+                        <code>-- UI Settings<br>
+                        Config.UITheme = 'dark'<br>
+                        Config.UIScale = 1.0<br>
+                        Config.NotificationDuration = 5000<br>
+                        Config.NotificationPosition = 'top-right'</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="section">
+                <h2>Features</h2>
+                
+                <div class="feature-section">
+                    <h3 id="vehicle-registration">Vehicle Registration</h3>
+                    <p>Players can register their vehicles with the DMV system by following these steps:</p>
+                    <ol>
+                        <li>Get into the driver seat of a vehicle</li>
+                        <li>Use the <code>/dmv</code> command</li>
+                        <li>Fill out the registration form with personal information</li>
+                        <li>Submit to register the vehicle</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <h4>Registration Requirements</h4>
+                        <ul>
+                            <li>Must be in the driver seat</li>
+                            <li>License plate must be unique</li>
+                            <li>All personal information must be provided</li>
+                            <li>Valid date of birth (16-100 years)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <h3 id="leo-tools">LEO Tools</h3>
+                    <p>Law enforcement officers have access to advanced lookup tools:</p>
+                    
+                    <h4>Name Search</h4>
+                    <p>Search for players by first name, last name, or both. Results show:</p>
+                    <ul>
+                        <li>Player information</li>
+                        <li>Registered vehicles</li>
+                        <li>Registration dates</li>
+                    </ul>
+                    
+                    <h4>License Plate Search</h4>
+                    <p>Search for vehicles by license plate number. Results show:</p>
+                    <ul>
+                        <li>Vehicle owner information</li>
+                        <li>Vehicle details</li>
+                        <li>Registration status</li>
+                    </ul>
+                </div>
+
+                <div class="feature-section">
+                    <h3 id="anpr-system">ANPR System</h3>
+                    <p>The Automatic Number Plate Recognition system provides:</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Automatic detection of unregistered vehicles</li>
+                        <li>Front and rear camera detection</li>
+                        <li>Realistic range-based detection</li>
+                        <li>Player vehicle filtering (excludes NPC vehicles)</li>
+                        <li>Detection logging for officers</li>
+                    </ul>
+                    
+                    <h4>Usage</h4>
+                    <ol>
+                        <li>Get into an emergency vehicle</li>
+                        <li>Use <code>/anpr</code> command to enable</li>
+                        <li>System automatically detects unregistered vehicles</li>
+                        <li>Notifications show "Front Cam" or "Rear Cam" alerts</li>
+                    </ol>
+                </div>
+
+                <div class="feature-section">
+                    <h3 id="dmv-documents">DMV Documents</h3>
+                    <p>Professional-looking registration certificates with:</p>
+                    <ul>
+                        <li>Complete vehicle and owner information</li>
+                        <li>Official DMV styling</li>
+                        <li>Printable PDF-style format</li>
+                        <li>Document number generation</li>
+                        <li>Issue date tracking</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Commands Section -->
+            <section id="commands" class="section">
+                <h2>Commands</h2>
+                
+                <div class="command-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Permission</th>
+                                <th>Description</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/dmv</code></td>
+                                <td>None</td>
+                                <td>Open DMV interface</td>
+                                <td><code>/dmv</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/anpr</code></td>
+                                <td>leo.anpr</td>
+                                <td>Toggle ANPR system</td>
+                                <td><code>/anpr</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/dmvhelp</code></td>
+                                <td>None</td>
+                                <td>Show DMV help information</td>
+                                <td><code>/dmvhelp</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Permissions Section -->
+            <section id="permissions" class="section">
+                <h2>Permissions</h2>
+                
+                <div class="permission-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Permission</th>
+                                <th>Description</th>
+                                <th>Default Groups</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>leo.dmv</code></td>
+                                <td>Access to LEO lookup tools</td>
+                                <td>admin, police</td>
+                            </tr>
+                            <tr>
+                                <td><code>leo.anpr</code></td>
+                                <td>Access to ANPR system</td>
+                                <td>admin, police</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Database Section -->
+            <section id="database" class="section">
+                <h2>Database Structure</h2>
+                
+                <div class="table-section">
+                    <h3>dmv_players</h3>
+                    <p>Stores player information and all available identifiers:</p>
+                    <div class="code-block">
+                        <code>CREATE TABLE dmv_players (<br>
+                        &nbsp;&nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;license VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;license2 VARCHAR(50),<br>
+                        &nbsp;&nbsp;steam VARCHAR(50),<br>
+                        &nbsp;&nbsp;discord VARCHAR(50),<br>
+                        &nbsp;&nbsp;xbl VARCHAR(50),<br>
+                        &nbsp;&nbsp;live VARCHAR(50),<br>
+                        &nbsp;&nbsp;fivem VARCHAR(50),<br>
+                        &nbsp;&nbsp;first_name VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;last_name VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;sex ENUM('male','female') NOT NULL,<br>
+                        &nbsp;&nbsp;dob DATE NOT NULL,<br>
+                        &nbsp;&nbsp;height INT NOT NULL,<br>
+                        &nbsp;&nbsp;address VARCHAR(255) NOT NULL,<br>
+                        &nbsp;&nbsp;created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br>
+                        &nbsp;&nbsp;updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP<br>
+                        );</code>
+                    </div>
+                </div>
+
+                <div class="table-section">
+                    <h3>dmv_vehicles</h3>
+                    <p>Stores vehicle registration records:</p>
+                    <div class="code-block">
+                        <code>CREATE TABLE dmv_vehicles (<br>
+                        &nbsp;&nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;player_id INT NOT NULL,<br>
+                        &nbsp;&nbsp;license_plate VARCHAR(20) NOT NULL,<br>
+                        &nbsp;&nbsp;vehicle_model VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;vehicle_props LONGTEXT NOT NULL,<br>
+                        &nbsp;&nbsp;registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br>
+                        &nbsp;&nbsp;is_active TINYINT(1) DEFAULT 1,<br>
+                        &nbsp;&nbsp;FOREIGN KEY (player_id) REFERENCES dmv_players(id)<br>
+                        );</code>
+                    </div>
+                </div>
+
+                <div class="table-section">
+                    <h3>dmv_anpr_logs</h3>
+                    <p>Stores ANPR detection logs:</p>
+                    <div class="code-block">
+                        <code>CREATE TABLE dmv_anpr_logs (<br>
+                        &nbsp;&nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>
+                        &nbsp;&nbsp;officer_id INT NOT NULL,<br>
+                        &nbsp;&nbsp;license_plate VARCHAR(20) NOT NULL,<br>
+                        &nbsp;&nbsp;vehicle_model VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;location VARCHAR(255) NOT NULL,<br>
+                        &nbsp;&nbsp;camera_type ENUM('front','rear') NOT NULL,<br>
+                        &nbsp;&nbsp;detected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br>
+                        &nbsp;&nbsp;FOREIGN KEY (officer_id) REFERENCES dmv_players(id)<br>
+                        );</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section id="troubleshooting" class="section">
+                <h2>Troubleshooting</h2>
+                
+                <div class="troubleshooting-section">
+                    <h3>Common Issues</h3>
+                    
+                    <div class="issue">
+                        <h4>Database Connection Issues</h4>
+                        <p><strong>Problem:</strong> Database errors or connection failures</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify oxmysql is loaded before TD-DMV</li>
+                            <li>Check database credentials in oxmysql config</li>
+                            <li>Ensure database tables were created properly</li>
+                            <li>Check MySQL service is running</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>Permission Errors</h4>
+                        <p><strong>Problem:</strong> LEO commands not working</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify ACE permissions are set correctly</li>
+                            <li>Check player has proper group assignment</li>
+                            <li>Restart server after permission changes</li>
+                            <li>Ensure permissions are in server.cfg</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>ANPR Not Working</h4>
+                        <p><strong>Problem:</strong> ANPR system not detecting vehicles</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Ensure you're in an emergency vehicle</li>
+                            <li>Check ANPR permissions are set</li>
+                            <li>Verify ANPR range settings in config</li>
+                            <li>Check if vehicles are player-owned</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="debug-section">
+                    <h3>Debug Mode</h3>
+                    <p>Enable debug mode in <code>config.lua</code> for detailed logging:</p>
+                    <div class="code-block">
+                        <code>Config.Debug = true</code>
+                    </div>
+                    <p>This will provide detailed console output for troubleshooting.</p>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="section">
+                <h2>Support</h2>
+                
+                <div class="support-content">
+                    <div class="support-info">
+                        <h3>Getting Help</h3>
+                        <p>Our dedicated support team is here to help you get the most out of TD-DMV. Join our Discord community for instant support, updates, and feature requests.</p>
+                        
+                        <div class="support-links">
+                            <a href="https://discord.gg/tWwfPnxz47" class="support-link discord">
+                                <i class="fab fa-discord"></i>
+                                Join Discord
+                            </a>
+                            <a href="mailto:support@tdscripts.com" class="support-link email">
+                                <i class="fas fa-envelope"></i>
+                                Email Support
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="support-stats">
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Fast</div>
+                            <div class="stat-label">Response</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Free</div>
+                            <div class="stat-label">Updates</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

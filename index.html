@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD Scripts Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <h1>TD Scripts</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#resources" class="nav-link">Resources</a>
+                    <a href="#support" class="nav-link">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>FiveM Script Documentation</h2>
+                    <p>Comprehensive documentation for all TD Scripts resources. Professional, secure, and feature-rich FiveM scripts for your server.</p>
+                </div>
+            </section>
+
+            <!-- Resources Grid -->
+            <section class="resources-section">
+                <div class="section-header">
+                    <h3>Available Resources</h3>
+                    <p>Click on any resource to view its documentation</p>
+                </div>
+                
+                <div class="resources-grid">
+                    <!-- TD-Store -->
+                    <div class="resource-card" onclick="openResource('td-store')">
+                        <div class="resource-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>TD-Store</h4>
+                            <p>Advanced store system with Tebex integration, vehicle management, and comprehensive admin tools.</p>
+                            <div class="resource-tags">
+                                <span class="tag">Store System</span>
+                                <span class="tag">Tebex Integration</span>
+                                <span class="tag">Vehicle Management</span>
+                            </div>
+                        </div>
+                        <div class="resource-status">
+                            <span class="status-badge released">Released</span>
+                        </div>
+                    </div>
+
+                    <!-- TD-DMV -->
+                    <div class="resource-card" onclick="openResource('td-dmv')">
+                        <div class="resource-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>TD-DMV</h4>
+                            <p>Department of Motor Vehicles system with vehicle registration, LEO lookup tools, and ANPR system.</p>
+                            <div class="resource-tags">
+                                <span class="tag">DMV System</span>
+                                <span class="tag">Vehicle Registration</span>
+                                <span class="tag">ANPR</span>
+                            </div>
+                        </div>
+                        <div class="resource-status">
+                            <span class="status-badge released">Released</span>
+                        </div>
+                    </div>
+
+                    <!-- TD-Banking (Placeholder) -->
+                    <div class="resource-card coming-soon">
+                        <div class="resource-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>TD-Banking</h4>
+                            <p>Advanced banking system with multiple account types, loans, investments, and comprehensive financial management.</p>
+                            <div class="resource-tags">
+                                <span class="tag">Banking System</span>
+                                <span class="tag">Financial Management</span>
+                                <span class="tag">Loans & Investments</span>
+                            </div>
+                        </div>
+                        <div class="resource-status">
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- TD-Housing (Placeholder) -->
+                    <div class="resource-card coming-soon">
+                        <div class="resource-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>TD-Housing</h4>
+                            <p>Comprehensive housing system with property management, interior customization, and rental systems.</p>
+                            <div class="resource-tags">
+                                <span class="tag">Housing System</span>
+                                <span class="tag">Property Management</span>
+                                <span class="tag">Interior Customization</span>
+                            </div>
+                        </div>
+                        <div class="resource-status">
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- TD-Jobs (Placeholder) -->
+                    <div class="resource-card coming-soon">
+                        <div class="resource-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>TD-Jobs</h4>
+                            <p>Advanced job system with multiple career paths, skill progression, and dynamic economy integration.</p>
+                            <div class="resource-tags">
+                                <span class="tag">Job System</span>
+                                <span class="tag">Career Progression</span>
+                                <span class="tag">Economy Integration</span>
+                            </div>
+                        </div>
+                        <div class="resource-status">
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- TD-Police (Placeholder) -->
+                    <div class="resource-card coming-soon">
+                        <div class="resource-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>TD-Police</h4>
+                            <p>Comprehensive law enforcement system with MDT, dispatch, evidence management, and advanced policing tools.</p>
+                            <div class="resource-tags">
+                                <span class="tag">Law Enforcement</span>
+                                <span class="tag">MDT System</span>
+                                <span class="tag">Dispatch</span>
+                            </div>
+                        </div>
+                        <div class="resource-status">
+                            <span class="status-badge coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <div class="section-header">
+                    <h3>Why Choose TD Scripts?</h3>
+                    <p>Professional-grade FiveM resources built with security and performance in mind</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Enterprise Security</h4>
+                        <p>Advanced anti-cheat protection, ownership validation, and comprehensive security measures.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>High Performance</h4>
+                        <p>Optimized database queries, efficient resource usage, and scalable architecture for large player bases.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Modern UI/UX</h4>
+                        <p>Beautiful, responsive interfaces with dark themes and intuitive navigation for the best user experience.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Easy Configuration</h4>
+                        <p>Comprehensive configuration files with detailed documentation and examples for easy setup.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Dedicated Discord support community with active developers and comprehensive troubleshooting guides.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h4>Regular Updates</h4>
+                        <p>Continuous development with regular updates, bug fixes, and new features based on community feedback.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section class="support-section">
+                <div class="support-content">
+                    <div class="support-info">
+                        <h3>Need Help?</h3>
+                        <p>Our dedicated support team is here to help you get the most out of TD Scripts. Join our Discord community for instant support, updates, and feature requests.</p>
+                        
+                        <div class="support-links">
+                            <a href="https://discord.gg/tWwfPnxz47" class="support-link discord">
+                                <i class="fab fa-discord"></i>
+                                Join Discord
+                            </a>
+                            <a href="mailto:support@tdscripts.com" class="support-link email">
+                                <i class="fas fa-envelope"></i>
+                                Email Support
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="support-stats">
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Active Servers</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Resources</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>TD Scripts</span>
+                    </div>
+                    <p>Professional FiveM resources for modern servers</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#" onclick="openResource('td-store')">TD-Store</a>
+                        <a href="#" onclick="openResource('td-dmv')">TD-DMV</a>
+                        <a href="#">TD-Banking</a>
+                        <a href="#">TD-Housing</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="https://discord.gg/tWwfPnxz47">Discord</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Troubleshooting</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">License</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 TD Scripts. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
