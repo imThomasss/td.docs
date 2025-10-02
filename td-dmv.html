@@ -57,7 +57,8 @@
                 </div>
                 
                 <div class="nav-section">
-                    <h3>Support</h3>
+                    <h3>Updates & Support</h3>
+                    <a href="#changelog" class="sidebar-link">Changelog</a>
                     <a href="#troubleshooting" class="sidebar-link">Troubleshooting</a>
                     <a href="#support" class="sidebar-link">Get Help</a>
                 </div>
@@ -72,9 +73,10 @@
                     <h1>TD-DMV Documentation</h1>
                     <p>Advanced Department of Motor Vehicles system for FiveM servers featuring vehicle registration, law enforcement lookup tools, and ANPR system.</p>
                     <div class="hero-badges">
-                        <span class="badge">Version 1.0.0</span>
+                        <span class="badge">Version 1.1.0</span>
                         <span class="badge">FiveM Ready</span>
                         <span class="badge">ox_lib Required</span>
+                        <span class="badge">Enhanced ANPR</span>
                     </div>
                 </div>
             </section>
@@ -203,10 +205,12 @@
                     <h3>ANPR Settings</h3>
                     <div class="code-block">
                         <code>-- ANPR Settings<br>
-                        Config.ANPRRange = 15.0<br>
-                        Config.ANPRCheckInterval = 1000<br>
-                        Config.ANPRFrontCamRange = 20.0<br>
-                        Config.ANPRRearCamRange = 15.0</code>
+                        Config.ANPRRange = 15.0 -- Overall detection range<br>
+                        Config.ANPRCheckInterval = 1000 -- Check frequency (ms)<br>
+                        Config.ANPRFrontCamRange = 20.0 -- Front camera range<br>
+                        Config.ANPRRearCamRange = 15.0 -- Rear camera range<br>
+                        Config.ANPRCooldownUnregistered = 5000 -- Cooldown for unregistered alerts (ms)<br>
+                        Config.ANPRCooldownStolen = 7500 -- Cooldown for stolen alerts (ms)</code>
                     </div>
                 </div>
 
@@ -248,17 +252,18 @@
                     <div class="info-box">
                         <h4>Registration Requirements</h4>
                         <ul>
-                            <li>Must be in the driver seat</li>
-                            <li>License plate must be unique</li>
-                            <li>All personal information must be provided</li>
-                            <li>Valid date of birth (16-100 years)</li>
+                        <li>Must be in the driver seat</li>
+                        <li>License plate must be unique</li>
+                        <li>All personal information must be provided</li>
+                        <li>Valid date of birth in MM/DD/YYYY format (16-100 years)</li>
+                        <li>Character selection from existing characters or create new</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="feature-section">
                     <h3 id="leo-tools">LEO Tools</h3>
-                    <p>Law enforcement officers have access to advanced lookup tools:</p>
+                    <p>Law enforcement officers have access to advanced lookup and management tools:</p>
                     
                     <h4>Name Search</h4>
                     <p>Search for players by first name, last name, or both. Results show:</p>
@@ -266,6 +271,7 @@
                         <li>Player information</li>
                         <li>Registered vehicles</li>
                         <li>Registration dates</li>
+                        <li>Stolen vehicle indicators with warning badges</li>
                     </ul>
                     
                     <h4>License Plate Search</h4>
@@ -274,29 +280,68 @@
                         <li>Vehicle owner information</li>
                         <li>Vehicle details</li>
                         <li>Registration status</li>
+                        <li>Stolen vehicle status</li>
+                    </ul>
+                    
+                    <h4>Stolen Vehicle Management</h4>
+                    <p>LEO officers can manage stolen vehicle status:</p>
+                    <ul>
+                        <li>Mark vehicles as stolen or recovered</li>
+                        <li>Toggle stolen status from search results</li>
+                        <li>Visual indicators for stolen vehicles</li>
+                        <li>Integration with ANPR system for automatic stolen vehicle detection</li>
+                    </ul>
+                    
+                    <h4>Vehicle Management Actions</h4>
+                    <ul>
+                        <li>View DMV registration documents</li>
+                        <li>Toggle stolen/recovered status</li>
+                        <li>Delete vehicle registrations (with confirmation)</li>
+                        <li>Access complete vehicle history</li>
                     </ul>
                 </div>
 
                 <div class="feature-section">
                     <h3 id="anpr-system">ANPR System</h3>
-                    <p>The Automatic Number Plate Recognition system provides:</p>
+                    <p>The Automatic Number Plate Recognition system provides advanced vehicle detection capabilities for law enforcement:</p>
                     
                     <h4>Features</h4>
                     <ul>
                         <li>Automatic detection of unregistered vehicles</li>
-                        <li>Front and rear camera detection</li>
-                        <li>Realistic range-based detection</li>
+                        <li>Automatic detection of stolen vehicles (even if registered)</li>
+                        <li>Front and rear camera detection with configurable ranges</li>
+                        <li>Realistic range-based detection (15-20 meter range)</li>
                         <li>Player vehicle filtering (excludes NPC vehicles)</li>
+                        <li>Intelligent cooldown system (5s for unregistered, 7.5s for stolen)</li>
                         <li>Detection logging for officers</li>
+                        <li>Vehicle class 18 (Police) detection for emergency vehicles</li>
+                    </ul>
+                    
+                    <h4>Alert Types</h4>
+                    <ul>
+                        <li><strong>Unregistered Vehicles:</strong> Orange warning notification</li>
+                        <li><strong>Stolen Vehicles:</strong> Red error notification with longer duration</li>
+                        <li><strong>Priority System:</strong> Stolen vehicles take priority over unregistered status</li>
                     </ul>
                     
                     <h4>Usage</h4>
                     <ol>
-                        <li>Get into an emergency vehicle</li>
+                        <li>Get into an emergency vehicle (vehicle class 18 - Police, Sheriff, etc.)</li>
                         <li>Use <code>/anpr</code> command to enable</li>
-                        <li>System automatically detects unregistered vehicles</li>
+                        <li>System automatically detects vehicles in range</li>
                         <li>Notifications show "Front Cam" or "Rear Cam" alerts</li>
+                        <li>Different alerts for unregistered vs stolen vehicles</li>
                     </ol>
+                    
+                    <h4>Configuration</h4>
+                    <ul>
+                        <li><code>Config.ANPRRange</code>: Overall detection range (default: 15.0m)</li>
+                        <li><code>Config.ANPRFrontCamRange</code>: Front camera range (default: 20.0m)</li>
+                        <li><code>Config.ANPRRearCamRange</code>: Rear camera range (default: 15.0m)</li>
+                        <li><code>Config.ANPRCooldownUnregistered</code>: Cooldown for unregistered alerts (default: 5000ms)</li>
+                        <li><code>Config.ANPRCooldownStolen</code>: Cooldown for stolen alerts (default: 7500ms)</li>
+                        <li><code>Config.ANPRCheckInterval</code>: Check frequency (default: 1000ms)</li>
+                    </ul>
                 </div>
 
                 <div class="feature-section">
@@ -410,7 +455,7 @@
 
                 <div class="table-section">
                     <h3>dmv_vehicles</h3>
-                    <p>Stores vehicle registration records:</p>
+                    <p>Stores vehicle registration records with stolen status tracking:</p>
                     <div class="code-block">
                         <code>CREATE TABLE dmv_vehicles (<br>
                         &nbsp;&nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>
@@ -420,9 +465,15 @@
                         &nbsp;&nbsp;vehicle_props LONGTEXT NOT NULL,<br>
                         &nbsp;&nbsp;registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br>
                         &nbsp;&nbsp;is_active TINYINT(1) DEFAULT 1,<br>
+                        &nbsp;&nbsp;is_stolen TINYINT(1) DEFAULT 0,<br>
                         &nbsp;&nbsp;FOREIGN KEY (player_id) REFERENCES dmv_players(id)<br>
                         );</code>
                     </div>
+                    <p><strong>Key Fields:</strong></p>
+                    <ul>
+                        <li><code>is_active</code>: Whether the registration is active</li>
+                        <li><code>is_stolen</code>: Whether the vehicle is marked as stolen (used by ANPR system)</li>
+                    </ul>
                 </div>
 
                 <div class="table-section">
@@ -440,6 +491,56 @@
                         &nbsp;&nbsp;FOREIGN KEY (officer_id) REFERENCES dmv_players(id)<br>
                         );</code>
                     </div>
+                </div>
+            </section>
+
+            <!-- Changelog Section -->
+            <section id="changelog" class="section">
+                <h2>Changelog</h2>
+                
+                <div class="changelog-section">
+                    <h3>Version 1.1.0 - Enhanced ANPR & Stolen Vehicle Management</h3>
+                    <div class="changelog-date">Latest Update</div>
+                    
+                    <h4>New Features</h4>
+                    <ul>
+                        <li>Enhanced ANPR system with stolen vehicle detection</li>
+                        <li>Stolen vehicle management for LEO officers</li>
+                        <li>Configurable ANPR cooldown timers</li>
+                        <li>Improved vehicle class detection (Class 18 - Police)</li>
+                        <li>Priority-based alert system (stolen vehicles override unregistered)</li>
+                    </ul>
+                    
+                    <h4>Improvements</h4>
+                    <ul>
+                        <li>Custom MM/DD/YYYY date input format</li>
+                        <li>Enhanced character selection system</li>
+                        <li>Improved ANPR detection logic</li>
+                        <li>Better error handling and validation</li>
+                        <li>Optimized performance with debug mode toggle</li>
+                    </ul>
+                    
+                    <h4>Bug Fixes</h4>
+                    <ul>
+                        <li>Fixed ANPR not detecting stolen registered vehicles</li>
+                        <li>Fixed date format issues in character selection</li>
+                        <li>Fixed callback conflicts between client and server</li>
+                        <li>Fixed initial ANPR delay preventing first alerts</li>
+                    </ul>
+                </div>
+                
+                <div class="changelog-section">
+                    <h3>Version 1.0.0 - Initial Release</h3>
+                    <div class="changelog-date">Initial Release</div>
+                    
+                    <h4>Core Features</h4>
+                    <ul>
+                        <li>Vehicle registration system</li>
+                        <li>LEO lookup tools</li>
+                        <li>Basic ANPR system</li>
+                        <li>DMV document generation</li>
+                        <li>Permission-based access control</li>
+                    </ul>
                 </div>
             </section>
 
