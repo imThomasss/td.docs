@@ -25,6 +25,14 @@ This repository contains the documentation website for TD Scripts, a collection 
 - Database schema
 - Troubleshooting guide
 
+### TD-Queue Documentation (`td-queue.html`)
+- Discord integration setup
+- Priority system configuration
+- Queue management features
+- Admin and testing commands
+- Database schema
+- Troubleshooting guide
+
 ## GitHub Pages Setup
 
 To deploy this documentation to GitHub Pages:
@@ -55,6 +63,7 @@ To deploy this documentation to GitHub Pages:
 - **Homepage**: `https://yourusername.github.io/td-scripts-docs/`
 - **TD-Store**: `https://imthomasss.github.io/docs.td-store.github-io/` (external)
 - **TD-DMV**: `https://yourusername.github.io/td-scripts-docs/td-dmv.html`
+- **TD-Queue**: `https://yourusername.github.io/td-scripts-docs/td-queue.html`
 
 ## Adding New Resources
 

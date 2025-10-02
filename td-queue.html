@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD-Queue Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-users"></i>
+                    <h1>TD-Queue</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#installation" class="nav-link">Installation</a>
+                    <a href="#configuration" class="nav-link">Configuration</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#support" class="nav-link">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Getting Started</h3>
+                    <a href="#overview" class="sidebar-link">Overview</a>
+                    <a href="#installation" class="sidebar-link">Installation</a>
+                    <a href="#configuration" class="sidebar-link">Configuration</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Features</h3>
+                    <a href="#discord-integration" class="sidebar-link">Discord Integration</a>
+                    <a href="#priority-system" class="sidebar-link">Priority System</a>
+                    <a href="#reconnection-protection" class="sidebar-link">Reconnection Protection</a>
+                    <a href="#smart-queue" class="sidebar-link">Smart Queue Management</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Configuration</h3>
+                    <a href="#discord-config" class="sidebar-link">Discord Settings</a>
+                    <a href="#queue-settings" class="sidebar-link">Queue Settings</a>
+                    <a href="#role-priorities" class="sidebar-link">Role Priorities</a>
+                    <a href="#server-settings" class="sidebar-link">Server Settings</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Administration</h3>
+                    <a href="#admin-commands" class="sidebar-link">Admin Commands</a>
+                    <a href="#testing-commands" class="sidebar-link">Testing Commands</a>
+                    <a href="#troubleshooting" class="sidebar-link">Troubleshooting</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Technical</h3>
+                    <a href="#database-schema" class="sidebar-link">Database Schema</a>
+                    <a href="#api-reference" class="sidebar-link">API Reference</a>
+                    <a href="#performance" class="sidebar-link">Performance</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Overview Section -->
+            <section id="overview" class="section">
+                <div class="section-header">
+                    <h2>TD-Queue Overview</h2>
+                    <p>A modern and effective FiveM queue system with Discord integration, priority-based queuing, and smart connection management.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Key Features</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-discord"></i>
+                            </div>
+                            <h4>Discord Integration</h4>
+                            <p>Real-time queue display in Discord with automatic message management and role-based priority detection.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h4>Priority System</h4>
+                            <p>Stackable priority system based on Discord roles with automatic role detection and caching.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <h4>Reconnection Protection</h4>
+                            <p>Players who disconnect and reconnect within 5 minutes get priority placement to prevent crash penalties.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Smart Queue Management</h4>
+                            <p>Always-active queue system with individual hold times, staggered connections, and concurrent join protection.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>How It Works</h3>
+                    <ol class="feature-list">
+                        <li><strong>Player Connects:</strong> System intercepts connection and checks Discord membership</li>
+                        <li><strong>Priority Calculation:</strong> Fetches Discord roles and calculates stackable priority</li>
+                        <li><strong>Queue Placement:</strong> Adds player to queue with individual 7-second hold time</li>
+                        <li><strong>Processing:</strong> Processes players by priority when slots become available</li>
+                        <li><strong>Discord Updates:</strong> Real-time Discord embed updates with queue status</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Installation Section -->
+            <section id="installation" class="section">
+                <div class="section-header">
+                    <h2>Installation</h2>
+                    <p>Step-by-step installation guide for TD-Queue</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Prerequisites</h3>
+                    <ul class="feature-list">
+                        <li>FiveM Server with admin access</li>
+                        <li>oxmysql resource installed and configured</li>
+                        <li>Discord Bot with proper permissions</li>
+                        <li>MySQL/MariaDB database</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Installation Steps</h3>
+                    <ol class="feature-list">
+                        <li><strong>Download:</strong> Place the TD-Queue folder in your server's resources directory</li>
+                        <li><strong>Database Setup:</strong> Run the SQL schema from <code>sql/schema.sql</code> in your database</li>
+                        <li><strong>Configuration:</strong> Edit <code>config.lua</code> with your Discord bot token and server settings</li>
+                        <li><strong>Server Config:</strong> Add <code>ensure TD-Queue</code> to your server.cfg</li>
+                        <li><strong>Restart:</strong> Restart your server to load the queue system</li>
+                    </ol>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Discord Bot Setup</h3>
+                    <ol class="feature-list">
+                        <li>Create a Discord application at <a href="https://discord.com/developers/applications" target="_blank">Discord Developer Portal</a></li>
+                        <li>Create a bot user and copy the bot token</li>
+                        <li>Invite the bot to your Discord server with these permissions:
+                            <ul>
+                                <li>Read Messages</li>
+                                <li>Send Messages</li>
+                                <li>Manage Messages</li>
+                                <li>Embed Links</li>
+                                <li>Read Message History</li>
+                            </ul>
+                        </li>
+                        <li>Get your Discord Server ID (right-click server name → Copy ID)</li>
+                        <li>Get your Queue Channel ID (right-click channel → Copy ID)</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Configuration Section -->
+            <section id="configuration" class="section">
+                <div class="section-header">
+                    <h2>Configuration</h2>
+                    <p>Complete configuration guide for TD-Queue</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Basic Configuration</h3>
+                    <pre><code class="language-lua">-- Discord Integration Configuration
+Config.Discord = {
+    BotToken = "YOUR_DISCORD_BOT_TOKEN",
+    GuildId = "YOUR_DISCORD_SERVER_ID", 
+    ChannelId = "YOUR_QUEUE_CHANNEL_ID",
+    
+    -- Role Priority System (Stackable)
+    RolePriorities = {
+        ["ADMIN_ROLE_ID"] = 100,    -- Admin role
+        ["MODERATOR_ROLE_ID"] = 80, -- Moderator role
+        ["VIP_ROLE_ID"] = 60,       -- VIP role
+        ["SUPPORTER_ROLE_ID"] = 40, -- Supporter role
+        ["default"] = 1             -- Default Discord member
+    },
+    
+    APIBaseURL = "https://discord.com/api/v10",
+    CacheExpiry = 300000, -- 5 minutes
+    Debug = true
+}</code></pre>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Queue Settings</h3>
+                    <pre><code class="language-lua">Config.Queue = {
+    QueueHoldTime = 7000,        -- 7 seconds individual hold time
+    ConnectionInterval = 2000,    -- 2 seconds between connections
+    RequireDiscord = false,       -- Require Discord membership
+    DiscordInviteLink = "",       -- Discord invite if required
+    UpdateInterval = 5000,        -- 5 seconds Discord update interval
+    MaxQueueSize = 100            -- Maximum queue size
+}</code></pre>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Server Settings</h3>
+                    <pre><code class="language-lua">Config.Server = {
+    MaxPlayerFetchInterval = 30000, -- 30 seconds
+    AutoProcessQueue = true,
+    ReconnectionWindow = 300000     -- 5 minutes
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="section">
+                <div class="section-header">
+                    <h2>Features</h2>
+                    <p>Detailed feature explanations</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="discord-integration">Discord Integration</h3>
+                    <p>The Discord integration provides real-time queue monitoring and management:</p>
+                    <ul class="feature-list">
+                        <li><strong>Smart Message Management:</strong> Automatically finds and reuses existing queue messages on restart</li>
+                        <li><strong>Real-time Updates:</strong> Live queue status with player counts, priorities, and estimated wait times</li>
+                        <li><strong>Dynamic Colors:</strong> Embed color changes based on server status (Green: Online, Orange: Busy, Red: Full)</li>
+                        <li><strong>Priority Indicators:</strong> Visual emoji indicators for different priority levels</li>
+                        <li><strong>Clean Format:</strong> Code block formatting for professional appearance</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="priority-system">Priority System</h3>
+                    <p>Advanced stackable priority system based on Discord roles:</p>
+                    <ul class="feature-list">
+                        <li><strong>Stackable Priorities:</strong> Multiple roles stack (Admin + VIP = 160 priority)</li>
+                        <li><strong>Automatic Detection:</strong> Fetches Discord roles via API and caches for performance</li>
+                        <li><strong>Fallback System:</strong> Default priority for Discord members without special roles</li>
+                        <li><strong>Reconnection Priority:</strong> Players get +1000 priority for 5 minutes after disconnect</li>
+                        <li><strong>Visual Indicators:</strong> 👑🔥💎🛡️⭐🎮👤 emoji system for easy identification</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="reconnection-protection">Reconnection Protection</h3>
+                    <p>Prevents players from losing their place due to crashes or disconnections:</p>
+                    <ul class="feature-list">
+                        <li><strong>5-Minute Window:</strong> Players who reconnect within 5 minutes get priority</li>
+                        <li><strong>Automatic Detection:</strong> Tracks player disconnect/reconnect patterns</li>
+                        <li><strong>Priority Boost:</strong> +1000 priority points for reconnecting players</li>
+                        <li><strong>Database Tracking:</strong> Persistent tracking of player connection history</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3 id="smart-queue">Smart Queue Management</h3>
+                    <p>Intelligent queue processing with advanced features:</p>
+                    <ul class="feature-list">
+                        <li><strong>Always Active:</strong> Queue system runs even when server has available slots</li>
+                        <li><strong>Individual Hold Times:</strong> Each player has their own 7-second hold period</li>
+                        <li><strong>Staggered Connections:</strong> Configurable delay between player connections</li>
+                        <li><strong>Concurrent Protection:</strong> Handles multiple simultaneous joins without issues</li>
+                        <li><strong>Dynamic Slot Detection:</strong> Automatically adapts to server slot changes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Admin Commands Section -->
+            <section id="admin-commands" class="section">
+                <div class="section-header">
+                    <h2>Administration Commands</h2>
+                    <p>Complete list of administrative commands</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Queue Management Commands</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>clearqueue</code>
+                            <p>Clears all players from the queue and resets the system</p>
+                        </div>
+                        <div class="command-item">
+                            <code>forcequeue</code>
+                            <p>Forces immediate processing of all queued players</p>
+                        </div>
+                        <div class="command-item">
+                            <code>queuestatus</code>
+                            <p>Shows current queue status and statistics</p>
+                        </div>
+                        <div class="command-item">
+                            <code>enablequeue</code>
+                            <p>Enables the queue system</p>
+                        </div>
+                        <div class="command-item">
+                            <code>disablequeue</code>
+                            <p>Disables the queue system</p>
+                        </div>
+                        <div class="command-item">
+                            <code>fixqueue</code>
+                            <p>Attempts to fix queue issues and inconsistencies</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Testing Commands</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>testqueue [count]</code>
+                            <p>Adds fake players to the queue for testing (default: 5 players)</p>
+                        </div>
+                        <div class="command-item">
+                            <code>testleave</code>
+                            <p>Simulates a player leaving the server</p>
+                        </div>
+                        <div class="command-item">
+                            <code>testslot</code>
+                            <p>Simulates a server slot becoming available</p>
+                        </div>
+                        <div class="command-item">
+                            <code>testpriority</code>
+                            <p>Tests priority system with various fake players</p>
+                        </div>
+                        <div class="command-item">
+                            <code>testmixed</code>
+                            <p>Creates a mixed queue with different priorities</p>
+                        </div>
+                        <div class="command-item">
+                            <code>cleartest</code>
+                            <p>Removes all test players from the queue</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Database Schema Section -->
+            <section id="database-schema" class="section">
+                <div class="section-header">
+                    <h2>Database Schema</h2>
+                    <p>Complete database structure for TD-Queue</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Queue Entries Table</h3>
+                    <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `queue_entries` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `discord_id` varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `position` int(11) NOT NULL,
+    `priority` int(11) NOT NULL,
+    `status` varchar(50) NOT NULL,
+    `estimated_wait_time` int(11) DEFAULT 0,
+    `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `discord_id` (`discord_id`)
+);</code></pre>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Player History Table</h3>
+                    <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `queue_player_history` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `discord_id` varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL,
+    `action` varchar(50) NOT NULL,
+    `timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+);</code></pre>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Server Status Table</h3>
+                    <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `queue_server_status` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `current_players` int(11) NOT NULL,
+    `max_players` int(11) NOT NULL,
+    `queue_enabled` tinyint(1) NOT NULL DEFAULT 1,
+    `last_updated` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+);</code></pre>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Statistics Table</h3>
+                    <pre><code class="language-sql">CREATE TABLE IF NOT EXISTS `queue_statistics` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `total_players_processed` int(11) DEFAULT 0,
+    `successful_connections` int(11) DEFAULT 0,
+    `failed_connections` int(11) DEFAULT 0,
+    `average_wait_time` int(11) DEFAULT 0,
+    `peak_queue_size` int(11) DEFAULT 0,
+    `last_reset` timestamp DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+);</code></pre>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section id="troubleshooting" class="section">
+                <div class="section-header">
+                    <h2>Troubleshooting</h2>
+                    <p>Common issues and solutions</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Common Issues</h3>
+                    
+                    <div class="troubleshoot-item">
+                        <h4>Discord Bot Not Working</h4>
+                        <p><strong>Symptoms:</strong> Discord embeds not updating, API errors in console</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul class="feature-list">
+                            <li>Verify bot token is correct in config.lua</li>
+                            <li>Ensure bot has proper permissions in Discord server</li>
+                            <li>Check if bot is online in Discord</li>
+                            <li>Verify Guild ID and Channel ID are correct</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="troubleshoot-item">
+                        <h4>Players Not Getting Correct Priority</h4>
+                        <p><strong>Symptoms:</strong> Players showing as "Discord Member" instead of their role priority</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul class="feature-list">
+                            <li>Check Discord role IDs in config.lua match actual Discord roles</li>
+                            <li>Enable debug mode to see Discord API responses</li>
+                            <li>Verify bot can see the Discord server members</li>
+                            <li>Check if role IDs are correctly copied from Discord</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="troubleshoot-item">
+                        <h4>Queue Not Processing Players</h4>
+                        <p><strong>Symptoms:</strong> Players stuck in queue even with available slots</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul class="feature-list">
+                            <li>Use <code>queuestatus</code> command to check queue state</li>
+                            <li>Use <code>fixqueue</code> command to reset queue</li>
+                            <li>Check if <code>queue_enabled</code> is set to 1 in database</li>
+                            <li>Verify server slot detection is working</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="troubleshoot-item">
+                        <h4>Database Errors</h4>
+                        <p><strong>Symptoms:</strong> oxmysql errors, column cannot be null</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul class="feature-list">
+                            <li>Run the SQL schema to create tables</li>
+                            <li>Check database connection in oxmysql config</li>
+                            <li>Verify table permissions for the database user</li>
+                            <li>Clear old queue entries if needed</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Debug Mode</h3>
+                    <p>Enable debug mode in config.lua for detailed logging:</p>
+                    <pre><code class="language-lua">Config.Debug = true</code></pre>
+                    <p>Debug mode provides detailed information about:</p>
+                    <ul class="feature-list">
+                        <li>Discord API calls and responses</li>
+                        <li>Player connection events and identifiers</li>
+                        <li>Priority calculation process</li>
+                        <li>Queue processing steps</li>
+                        <li>Database operations</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="section">
+                <div class="section-header">
+                    <h2>Support</h2>
+                    <p>Get help and support for TD-Queue</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Getting Help</h3>
+                    <div class="support-grid">
+                        <div class="support-item">
+                            <div class="support-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h4>Discord Support</h4>
+                            <p>Join our Discord server for real-time support and community help.</p>
+                            <a href="https://discord.gg/tWwfPnxz47" target="_blank" class="btn btn-primary">Join Discord</a>
+                        </div>
+                        
+                        <div class="support-item">
+                            <div class="support-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email Support</h4>
+                            <p>Contact us directly for technical support and bug reports.</p>
+                            <a href="mailto:support@tdscripts.com" class="btn btn-secondary">Send Email</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>System Requirements</h3>
+                    <ul class="feature-list">
+                        <li><strong>FiveM Server:</strong> Latest recommended build</li>
+                        <li><strong>oxmysql:</strong> Latest version with MySQL/MariaDB</li>
+                        <li><strong>Discord Bot:</strong> Bot token with proper permissions</li>
+                        <li><strong>Database:</strong> MySQL 5.7+ or MariaDB 10.3+</li>
+                        <li><strong>Resources:</strong> oxmysql dependency</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Version Information</h3>
+                    <p><strong>Current Version:</strong> 1.0.0</p>
+                    <p><strong>Last Updated:</strong> January 2025</p>
+                    <p><strong>Compatibility:</strong> FiveM Build 2944+</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Add syntax highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize navigation
+            initializeNavigation();
+            initializeSidebar();
+            initializeScrollSpy();
+            
+            // Add code block styling
+            const codeBlocks = document.querySelectorAll('code');
+            codeBlocks.forEach(block => {
+                block.style.background = '#1e293b';
+                block.style.padding = '0.5rem';
+                block.style.borderRadius = '0.375rem';
+                block.style.fontFamily = 'Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+                block.style.fontSize = '0.875rem';
+                block.style.color = '#e2e8f0';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -150,6 +150,10 @@ function openResource(resourceName) {
             // Open TD-DMV documentation (same site)
             window.location.href = 'td-dmv.html';
             break;
+        case 'td-queue':
+            // Open TD-Queue documentation (same site)
+            window.location.href = 'td-queue.html';
+            break;
         default:
             // For future resources, open their respective pages
             if (resourceName) {
