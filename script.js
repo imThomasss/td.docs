@@ -144,7 +144,7 @@ function openResource(resourceName) {
     switch(resourceName) {
         case 'store':
             // Open TD-Store documentation in new tab
-            window.open('https://imthomasss.github.io/docs.td-store.github-io/', '_blank');
+            window.open('https://imthomasss.github.io/docs.td-store.github-io/');
             break;
         case 'dmv':
             // Open TD-DMV documentation (same site)
