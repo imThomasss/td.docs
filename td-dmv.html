@@ -163,8 +163,9 @@
                     <p>Add TD-DMV to your <code>server.cfg</code> file:</p>
                     <div class="code-block">
                         <code># Database (must load first)<br>
+                        ensure ox_lib
                         ensure oxmysql<br><br>
-                        # TD-DMV (loads after oxmysql)<br>
+                        # TD-DMV (loads after oxmysql and ox_lib)<br>
                         ensure td-dmv</code>
                     </div>
                 </div>
