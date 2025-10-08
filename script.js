@@ -154,6 +154,10 @@ function openResource(resourceName) {
             // Open TD-Queue documentation (same site)
             window.location.href = 'td-queue.html';
             break;
+        case 'applicationportal':
+            // Open TD-ApplicationPortal documentation (same site)
+            window.location.href = 'TD-ApplicationPortal.html';
+            break;
         default:
             // For future resources, open their respective pages
             if (resourceName) {

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD-ApplicationPortal Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-file-alt"></i>
+                    <h1>TD-ApplicationPortal</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#installation" class="nav-link">Installation</a>
+                    <a href="#configuration" class="nav-link">Configuration</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#support" class="nav-link">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Getting Started</h3>
+                    <a href="#overview" class="sidebar-link">Overview</a>
+                    <a href="#requirements" class="sidebar-link">Requirements</a>
+                    <a href="#installation" class="sidebar-link">Installation</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Configuration</h3>
+                    <a href="#database" class="sidebar-link">Database Setup</a>
+                    <a href="#firewall" class="sidebar-link">Firewall Configuration</a>
+                    <a href="#environment" class="sidebar-link">Environment File</a>
+                    <a href="#license" class="sidebar-link">License Key</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Advanced Setup</h3>
+                    <a href="#discord-bot" class="sidebar-link">Discord Bot</a>
+                    <a href="#ssl" class="sidebar-link">SSL Certificates</a>
+                    <a href="#running" class="sidebar-link">Running the App</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Support</h3>
+                    <a href="#troubleshooting" class="sidebar-link">Troubleshooting</a>
+                    <a href="#support" class="sidebar-link">Get Help</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>TD-ApplicationPortal Documentation</h1>
+                    <p>Complete application management system for Discord communities, featuring OAuth2 authentication, application review workflows, and administrative tools.</p>
+                    <div class="hero-badges">
+                        <span class="badge">Windows VPS</span>
+                        <span class="badge">Node.js</span>
+                        <span class="badge">Discord OAuth2</span>
+                        <span class="badge">SSL Ready</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overview Section -->
+            <section id="overview" class="section">
+                <h2>Overview</h2>
+                <p>TD-ApplicationPortal is a comprehensive web-based application management system designed for Discord communities. It provides a secure, professional platform for managing member applications with Discord OAuth2 integration, role-based permissions, and an intuitive review workflow.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Discord Integration</h3>
+                        <p>Seamless Discord OAuth2 authentication with role synchronization and permission management.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Application Management</h3>
+                        <p>Complete application lifecycle management with review workflows and status tracking.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Licensed</h3>
+                        <p>Built-in license verification system and SSL certificate support for secure connections.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3>Role-Based Access</h3>
+                        <p>Granular permission system with admin, reviewer, and applicant roles.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Requirements Section -->
+            <section id="requirements" class="section">
+                <h2>Requirements</h2>
+                
+                <div class="step">
+                    <h3>Server Requirements</h3>
+                    <p>Before you begin, ensure you have the following:</p>
+                    <ul>
+                        <li><strong>Windows VPS</strong> - Windows Server or equivalent hosting solution</li>
+                        <li><strong>Domain/Subdomain</strong> - Pointing to your VPS IP (e.g., apply.thomasdevelopments.com)</li>
+                        <li><strong>Node.js</strong> - Latest LTS version recommended</li>
+                        <li><strong>MariaDB </strong> - Database server for storing application data</li>
+                        <li><strong>HeidiSQL </strong> - More user friendly database management tool</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Required Software</h3>
+                    <p>Install these applications on your Windows VPS:</p>
+                    <ul>
+                        <li><strong>Node.js</strong> - JavaScript runtime for the application</li>
+                        <li><strong>Certify The Web</strong> - SSL certificate management tool</li>
+                        <li><strong>MariaDB</strong> - Recommended database (or alternative SQL database)</li>
+                        <li><strong>HeidiSQL</strong> - Database management tool</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Discord Requirements</h3>
+                    <ul>
+                        <li><strong>Discord Server</strong> - For OAuth2 integration</li>
+                        <li><strong>Discord Bot Application</strong> - Created via Discord Developer Portal</li>
+                        <li><strong>Administrator Permissions</strong> - For bot configuration</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Installation Section -->
+            <section id="installation" class="section">
+                <h2>Installation</h2>
+                
+                <div class="step">
+                    <h3>Step 1: Database Setup</h3>
+                    <p>Set up your database using HeidiSQL:</p>
+                    <ol>
+                        <li>Open HeidiSQL and connect to your database server</li>
+                        <li>Create a new database for the application portal</li>
+                        <li>Locate the <code>database.sql</code> file in the project folder</li>
+                        <li>Load and run the SQL file to create all required tables</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <h4>Database Tables</h4>
+                        <p>The SQL file will create tables for:</p>
+                        <ul>
+                            <li>User accounts and authentication</li>
+                            <li>Application submissions</li>
+                            <li>Application reviews and comments</li>
+                            <li>License verification</li>
+                            <li>Role and permission management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Step 2: Firewall Configuration</h3>
+                    <p>Open the required ports on your Windows VPS firewall:</p>
+                    
+                    <div class="code-block">
+                        <code>Required Ports:<br>
+                        • Port 80 (HTTP)<br>
+                        • Port 443 (HTTPS)<br>
+                        • Port 6000 (Application Backend)<br>
+                        • Port 6001 (Application Frontend)</code>
+                    </div>
+                    
+                    <p><strong>Windows Firewall Setup:</strong></p>
+                    <ol>
+                        <li>Open Windows Defender Firewall → Advanced Settings</li>
+                        <li>Click Inbound Rules → New Rule</li>
+                        <li>Select Port → Next</li>
+                        <li>Add each port (80, 443, 6000, 6001)</li>
+                        <li>Allow the connection → Finish</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <h4>Hosting Provider Firewall</h4>
+                        <p>If using a hosting provider, you may also need to open these ports through their control panel or firewall management interface.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Step 3: Install Dependencies</h3>
+                    <p>Navigate to the project folder and install Node.js dependencies:</p>
+                    <div class="code-block">
+                        <code>cd D:\TD-Scripts\TD-ApplicationPortal<br>
+                        npm install</code>
+                    </div>
+                    <p>This will install all required packages for both frontend and backend.</p>
+                </div>
+            </section>
+
+            <!-- Configuration Section -->
+            <section id="configuration" class="section">
+                <h2>Configuration</h2>
+                
+                <div id="environment" class="config-section">
+                    <h3>Environment File Setup</h3>
+                    <p>Configure your application by editing the <code>.env</code> file:</p>
+                    <ol>
+                        <li>Locate the <code>.env</code> file in the project root folder</li>
+                        <li>Open it with a text editor (Notepad, VS Code, etc.)</li>
+                        <li>Update the following settings according to your environment:</li>
+                    </ol>
+                    
+                    <div class="code-block">
+                        <code># Database Configuration<br>
+                        DB_HOST=localhost<br>
+                        DB_USER=your_database_user<br>
+                        DB_PASSWORD=your_database_password<br>
+                        DB_NAME=application_portal<br><br>
+                        # Server Configuration<br>
+                        PORT=6000<br>
+                        FRONTEND_PORT=6001<br>
+                        DOMAIN=apply.yourdomain.com<br><br>
+                        # Discord OAuth2<br>
+                        DISCORD_CLIENT_ID=your_client_id<br>
+                        DISCORD_CLIENT_SECRET=your_client_secret<br>
+                        DISCORD_BOT_TOKEN=your_bot_token<br>
+                        DISCORD_GUILD_ID=your_guild_id<br>
+                        DISCORD_REDIRECT_URI=https://apply.yourdomain.com/auth/discord/callback<br><br>
+                        # License System<br>
+                        LICENSE_KEY=your_license_key<br>
+                        LICENSE_WEBHOOK=your_webhook_url</code>
+                    </div>
+                </div>
+
+                <div id="license" class="config-section">
+                    <h3>License Key Setup</h3>
+                    <p>Generate and configure your license key:</p>
+                    <ol>
+                        <li>Join our Discord server: <a href="https://discord.gg/gy6V3kaJr4" target="_blank">https://discord.gg/gy6V3kaJr4</a></li>
+                        <li>Navigate to the <strong>Generate License Key</strong> channel</li>
+                        <li>Click the button to create your license key</li>
+                        <li>Enter your domain (e.g., <code>apply.thomasdevelopments.com</code>)</li>
+                        <li>Enter your VPS IP address (must match DNS record)</li>
+                        <li>Copy the generated license key and webhook URL</li>
+                        <li>Paste both values into your <code>.env</code> file</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <h4>Important Notes</h4>
+                        <ul>
+                            <li>Your license is tied to your domain and IP address</li>
+                            <li>If either changes, contact our staff on Discord with proof of ownership</li>
+                            <li>Keep your license key private and secure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="discord-bot" class="config-section">
+                    <h3>Discord Bot Configuration</h3>
+                    <p>Set up Discord OAuth2 and bot integration:</p>
+                    
+                    <h4>1. Create Discord Application</h4>
+                    <ol>
+                        <li>Go to <a href="https://discord.com/developers/applications" target="_blank">Discord Developer Portal</a></li>
+                        <li>Click "New Application" and give it a name</li>
+                        <li>Create a bot under the "Bot" tab</li>
+                    </ol>
+                    
+                    <h4>2. Configure OAuth2</h4>
+                    <ol>
+                        <li>Go to OAuth2 → Redirects</li>
+                        <li>Add your redirect URL: <code>https://yourdomain.com/auth/discord/callback</code></li>
+                        <li>This URL must match exactly what's in your <code>.env</code> file</li>
+                        <li>Go to OAuth2 → General</li>
+                        <li>Copy your <strong>Client ID</strong> and <strong>Client Secret</strong></li>
+                        <li>Paste them into your <code>.env</code> file</li>
+                    </ol>
+                    
+                    <h4>3. Bot Configuration</h4>
+                    <ol>
+                        <li>Go to the Bot tab</li>
+                        <li>Enable all <strong>Privileged Gateway Intents</strong>:</li>
+                        <ul>
+                            <li>Presence Intent</li>
+                            <li>Server Members Intent</li>
+                            <li>Message Content Intent</li>
+                        </ul>
+                        <li>Copy the <strong>Bot Token</strong></li>
+                        <li>Paste it into your <code>.env</code> file as <code>DISCORD_BOT_TOKEN</code></li>
+                    </ol>
+                    
+                    <h4>4. Get Guild ID</h4>
+                    <ol>
+                        <li>Enable Developer Mode in Discord (User Settings → Advanced → Developer Mode)</li>
+                        <li>Right-click your server → Copy Server ID</li>
+                        <li>Paste it into your <code>.env</code> file as <code>DISCORD_GUILD_ID</code></li>
+                    </ol>
+                    
+                    <h4>5. Invite Bot to Server</h4>
+                    <ol>
+                        <li>Go to OAuth2 → URL Generator</li>
+                        <li>Select scopes: <code>bot</code></li>
+                        <li>Select permissions: <code>Administrator</code></li>
+                        <li>Copy the generated URL</li>
+                        <li>Open it in your browser and invite the bot to your server</li>
+                    </ol>
+                </div>
+
+                <div id="ssl" class="config-section">
+                    <h3>SSL Certificate Setup</h3>
+                    <p>Configure SSL certificates using Certify The Web:</p>
+                    
+                    <h4>1. Request Certificate</h4>
+                    <ol>
+                        <li>Open Certify The Web on your VPS</li>
+                        <li>Click "Create New Certificate"</li>
+                        <li>Add your domain (e.g., <code>apply.thomasdevelopments.com</code>)</li>
+                        <li>Click "Request Certificate"</li>
+                        <li>Wait for certificate validation and issuance</li>
+                    </ol>
+                    
+                    <h4>2. Export Certificate Files</h4>
+                    <p>Configure automated certificate export:</p>
+                    
+                    <p><strong>Export Certificate Chain:</strong></p>
+                    <ol>
+                        <li>Go to the Tasks tab → Add</li>
+                        <li>Select "Export Certificate"</li>
+                        <li>Task Name: <code>Certificate</code></li>
+                        <li>Destination: <code>D:\TD-Scripts\TD-ApplicationPortal\ssl\certificate.crt</code></li>
+                        <li>Export As: <strong>PEM – Full Certificate Chain (excluding key)</strong></li>
+                        <li>Click OK</li>
+                    </ol>
+                    
+                    <p><strong>Export Private Key:</strong></p>
+                    <ol>
+                        <li>Add another task → Select "Export Certificate"</li>
+                        <li>Task Name: <code>Key</code></li>
+                        <li>Destination: <code>D:\TD-Scripts\TD-ApplicationPortal\ssl\private.key</code></li>
+                        <li>Export As: <strong>PEM – Private Key (.key)</strong></li>
+                        <li>Click OK</li>
+                    </ol>
+                    
+                    <h4>3. Run Export Tasks</h4>
+                    <ol>
+                        <li>Run both export tasks to generate the certificate files</li>
+                        <li>Verify both files exist in your <code>ssl</code> folder:
+                            <ul>
+                                <li><code>certificate.crt</code></li>
+                                <li><code>private.key</code></li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <h4>Certificate Renewal</h4>
+                        <p><strong>Important:</strong> SSL certificates must be renewed every 90 days. Certify The Web will handle automatic renewal, but ensure your export tasks run after each renewal to update the files.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Running Section -->
+            <section id="running" class="section">
+                <h2>Running the Application</h2>
+                
+                <div class="step">
+                    <h3>Starting the Application</h3>
+                    <p>Launch the application using npm scripts:</p>
+                    
+                    <ol>
+                        <li>Open Command Prompt or Terminal</li>
+                        <li>Navigate to the project folder:
+                            <div class="code-block">
+                                <code>cd D:\TD-Scripts\TD-ApplicationPortal</code>
+                            </div>
+                        </li>
+                        <li>Start the application:
+                            <div class="code-block">
+                                <code>npm start</code>
+                            </div>
+                        </li>
+                    </ol>
+                    
+                    <p>This command will:</p>
+                    <ul>
+                        <li>Build the frontend React application</li>
+                        <li>Start the backend Node.js server</li>
+                        <li>Serve the application on configured ports</li>
+                        <li>Verify your license key</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Managing the Application</h3>
+                    
+                    <h4>Stopping the Application</h4>
+                    <p>Press <code>Ctrl + C</code> in the terminal where the application is running.</p>
+                    
+                    <h4>Restarting the Application</h4>
+                    <p>Simply run <code>npm start</code> again after stopping.</p>
+                    
+                    <h4>Development Mode</h4>
+                    <p>For development with hot-reload:</p>
+                    <div class="code-block">
+                        <code>npm run dev</code>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Accessing Your Application</h3>
+                    <p>Once started, you can access the application:</p>
+                    
+                    <div class="code-block">
+                        <code>👉 https://yourdomain.com</code>
+                    </div>
+                    
+                    <p>You should see:</p>
+                    <ul>
+                        <li>License verification confirmation</li>
+                        <li>Discord login button</li>
+                        <li>Application portal interface</li>
+                    </ul>
+                    
+                    <div class="info-box">
+                        <h4>First Time Setup</h4>
+                        <p>The first user to log in will automatically receive administrator privileges. Subsequent users will need to be granted permissions through the admin panel.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="section">
+                <h2>Features</h2>
+                
+                <div class="feature-section">
+                    <h3>Application Management</h3>
+                    <p>Comprehensive application lifecycle management:</p>
+                    <ul>
+                        <li><strong>Application Submission</strong> - Users can submit applications with custom forms</li>
+                        <li><strong>Status Tracking</strong> - Real-time status updates (Pending, Under Review, Approved, Denied)</li>
+                        <li><strong>Application History</strong> - View all previous applications and their outcomes</li>
+                        <li><strong>Comments & Notes</strong> - Internal commenting system for reviewers</li>
+                        <li><strong>Multiple Application Types</strong> - Support for different application categories</li>
+                    </ul>
+                </div>
+
+                <div class="feature-section">
+                    <h3>Review Workflow</h3>
+                    <p>Streamlined application review process:</p>
+                    <ul>
+                        <li><strong>Review Dashboard</strong> - Centralized view of pending applications</li>
+                        <li><strong>Detailed Review Interface</strong> - Complete applicant information at a glance</li>
+                        <li><strong>Quick Actions</strong> - Approve or deny with custom messages</li>
+                        <li><strong>Reviewer Notes</strong> - Private notes visible only to staff</li>
+                        <li><strong>Review History</strong> - Track who reviewed what and when</li>
+                    </ul>
+                </div>
+
+                <div class="feature-section">
+                    <h3>Discord Integration</h3>
+                    <p>Seamless Discord authentication and management:</p>
+                    <ul>
+                        <li><strong>OAuth2 Login</strong> - Secure Discord authentication</li>
+                        <li><strong>Role Synchronization</strong> - Automatic role assignment based on application status</li>
+                        <li><strong>User Profile</strong> - Display Discord avatar, username, and roles</li>
+                        <li><strong>Webhook Notifications</strong> - Send application updates to Discord channels</li>
+                        <li><strong>Permission Management</strong> - Role-based access control tied to Discord roles</li>
+                    </ul>
+                </div>
+
+                <div class="feature-section">
+                    <h3>Administrative Tools</h3>
+                    <p>Powerful admin controls:</p>
+                    <ul>
+                        <li><strong>User Management</strong> - View and manage all users</li>
+                        <li><strong>Permission Control</strong> - Assign admin and reviewer roles</li>
+                        <li><strong>Application Forms</strong> - Create and customize application forms</li>
+                        <li><strong>Analytics Dashboard</strong> - View application statistics and trends</li>
+                        <li><strong>System Settings</strong> - Configure application portal behavior</li>
+                    </ul>
+                </div>
+
+                <div class="feature-section">
+                    <h3>Security Features</h3>
+                    <p>Built-in security and protection:</p>
+                    <ul>
+                        <li><strong>License Verification</strong> - Domain and IP-based license validation</li>
+                        <li><strong>SSL/HTTPS</strong> - Encrypted connections for all traffic</li>
+                        <li><strong>Session Management</strong> - Secure session handling with Passport.js</li>
+                        <li><strong>Rate Limiting</strong> - Protection against spam and abuse</li>
+                        <li><strong>Input Validation</strong> - Server-side validation of all inputs</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Database Section -->
+            <section id="database" class="section">
+                <h2>Database Structure</h2>
+                
+                <div class="table-section">
+                    <h3>Main Tables</h3>
+                    <p>The application uses the following database tables:</p>
+                    
+                    <h4>users</h4>
+                    <p>Stores user accounts and Discord information:</p>
+                    <ul>
+                        <li>Discord ID and authentication tokens</li>
+                        <li>Username, discriminator, and avatar</li>
+                        <li>Role assignments (admin, reviewer, user)</li>
+                        <li>Account creation and last login timestamps</li>
+                    </ul>
+                    
+                    <h4>applications</h4>
+                    <p>Stores application submissions:</p>
+                    <ul>
+                        <li>Application type and form responses</li>
+                        <li>Current status (pending, approved, denied)</li>
+                        <li>Submission timestamp and last update</li>
+                        <li>Associated user ID</li>
+                    </ul>
+                    
+                    <h4>application_reviews</h4>
+                    <p>Tracks review history:</p>
+                    <ul>
+                        <li>Reviewer user ID</li>
+                        <li>Review decision and notes</li>
+                        <li>Review timestamp</li>
+                        <li>Associated application ID</li>
+                    </ul>
+                    
+                    <h4>application_comments</h4>
+                    <p>Internal comments on applications:</p>
+                    <ul>
+                        <li>Comment author (reviewer)</li>
+                        <li>Comment text and timestamp</li>
+                        <li>Associated application ID</li>
+                        <li>Visibility settings</li>
+                    </ul>
+                    
+                    <h4>license_verification</h4>
+                    <p>License validation records:</p>
+                    <ul>
+                        <li>License key and status</li>
+                        <li>Domain and IP validation</li>
+                        <li>Last verification timestamp</li>
+                        <li>Expiration tracking</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section id="troubleshooting" class="section">
+                <h2>Troubleshooting</h2>
+                
+                <div class="troubleshooting-section">
+                    <h3>Common Issues</h3>
+                    
+                    <div class="issue">
+                        <h4>License Verification Failed</h4>
+                        <p><strong>Problem:</strong> Application won't start due to license verification failure</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify your license key is correctly entered in the <code>.env</code> file</li>
+                            <li>Ensure your domain and IP address match what was registered</li>
+                            <li>Check that your server has internet connectivity</li>
+                            <li>Contact support on Discord if your IP or domain changed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>Discord OAuth2 Not Working</h4>
+                        <p><strong>Problem:</strong> Can't log in with Discord</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify Discord Client ID, Secret, and Bot Token are correct</li>
+                            <li>Check that redirect URI in Discord matches your <code>.env</code> exactly</li>
+                            <li>Ensure bot is invited to your server with correct permissions</li>
+                            <li>Verify all Privileged Gateway Intents are enabled</li>
+                            <li>Check Guild ID is correct</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>Database Connection Errors</h4>
+                        <p><strong>Problem:</strong> Can't connect to database</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify database credentials in <code>.env</code> file</li>
+                            <li>Ensure MariaDB/MySQL service is running</li>
+                            <li>Check database exists and tables were created</li>
+                            <li>Verify database user has proper permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>SSL Certificate Issues</h4>
+                        <p><strong>Problem:</strong> HTTPS not working or certificate errors</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify certificate files exist in the <code>ssl</code> folder</li>
+                            <li>Check file names: <code>certificate.crt</code> and <code>private.key</code></li>
+                            <li>Ensure certificate export tasks ran successfully</li>
+                            <li>Renew certificate if expired (90-day validity)</li>
+                            <li>Verify domain matches the certificate domain</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>Ports Already in Use</h4>
+                        <p><strong>Problem:</strong> Application won't start due to port conflicts</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Check if another application is using ports 6000 or 6001</li>
+                            <li>Stop any conflicting services</li>
+                            <li>Change port numbers in <code>.env</code> file if needed</li>
+                            <li>Restart your server if necessary</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="issue">
+                        <h4>Firewall Blocking Connections</h4>
+                        <p><strong>Problem:</strong> Can't access the application from outside</p>
+                        <p><strong>Solutions:</strong></p>
+                        <ul>
+                            <li>Verify all required ports are open (80, 443, 6000, 6001)</li>
+                            <li>Check both Windows Firewall and hosting provider firewall</li>
+                            <li>Test with firewall temporarily disabled to isolate the issue</li>
+                            <li>Ensure inbound rules allow connections</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="debug-section">
+                    <h3>Getting Logs</h3>
+                    <p>View application logs for debugging:</p>
+                    <ul>
+                        <li>Backend logs appear in the terminal where you ran <code>npm start</code></li>
+                        <li>Check browser console for frontend errors (F12 → Console)</li>
+                        <li>Database errors will appear in MariaDB logs</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="section">
+                <h2>Support</h2>
+                
+                <div class="support-content">
+                    <div class="support-info">
+                        <h3>Getting Help</h3>
+                        <p>Our dedicated support team is ready to assist you with installation, configuration, and troubleshooting. Join our Discord community for fast support and updates.</p>
+                        
+                        <div class="support-links">
+                            <a href="https://discord.gg/gy6V3kaJr4" class="support-link discord">
+                                <i class="fab fa-discord"></i>
+                                Join Discord
+                            </a>
+                            <a href="mailto:support@tdscripts.com" class="support-link email">
+                                <i class="fas fa-envelope"></i>
+                                Email Support
+                            </a>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h4>License Changes</h4>
+                            <p>If your IP address or domain changes, contact our staff on Discord with proof of ownership (license key), and we'll update your license information.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="support-stats">
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Fast</div>
+                            <div class="stat-label">Response</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Free</div>
+                            <div class="stat-label">Updates</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
